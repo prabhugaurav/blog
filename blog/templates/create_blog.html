@@ -1,0 +1,33 @@
+{% include 'header.html' %}
+
+        <!-- Main section Start -->
+        <div class="row mt-5">
+            <div class="col-md-8">
+                <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">Blog Title</label>
+                            <input type="text" name="title" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Blog Description</label>
+                            <textarea class="form-control" name="detail" id="" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Select Category</label>
+                            <select class="form-control" name="cat">
+                                <option value="1">Python</option>
+                                <option value="2">Data Science</option>
+                                <option value="3">Data Analyst</option>
+                                <option value="4">Java</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-danger">Submit</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+        <!-- Main section Start -->
+
+{% include 'footer.html' %}

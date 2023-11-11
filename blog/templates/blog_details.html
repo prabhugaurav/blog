@@ -1,0 +1,61 @@
+{% include 'header.html' %}
+
+        <!-- Main section Start -->
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                {% if pmsg %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{pmsg}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endif %}
+                {% if umsg %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{umsg}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-8 mx-auto">
+                {% for x in blog %}
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <th>Blog Title</th>
+                            <td>{{x.title}}</td>
+                        </tr>
+                        <tr>
+                            <th>Blog Category</th>
+                            <td>
+                                {% if x.cat == 1 %}
+                                Python
+                                {% elif x.cat == 2 %}
+                                Data Science
+                                {% elif x.cat == 3 %}
+                                Data Analyst
+                                {% else %}
+                                JAVA
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Blog Details</th>
+                            <td>{{x.detail}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                {% if x.is_published %}
+                                <a href="/publish/U/{{x.id}}"><button class="btn btn-danger btn-sm">Unpublish</button></a>
+                                {% else %}
+                                <a href="/publish/P/{{x.id}}"><button class="btn btn-success btn-sm">Publish</button></a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Main section Start -->
+
+{% include 'footer.html' %}

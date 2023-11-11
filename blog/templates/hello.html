@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h4>Variable Interpolution</h4>
+    <h1>Welcome {{uname}}</h1>
+    <hr>
+
+    {% comment %}
+    <h4>Decision control instuction</h4>
+    {% if x > y %}
+        In if block <br>
+        {{x}} is greater.
+    {% else %}
+        In else block <br>
+        {{y}} is greater.
+    {% endif %}
+    <hr>
+    {% endcomment %}
+
+    <h4>Loop control instuction</h4>
+    {% for x in l %}
+        {{x}} <br>
+    {% endfor %}
+    <br>
+    <button onclick="hello()">click me</button>
+    <hr>
+    <h4>Static Images</h4>
+    <img src="{% static 'images/photo.jpg' %}" alt="">
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

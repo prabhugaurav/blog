@@ -1,0 +1,69 @@
+{% include 'header.html' %}
+        <!-- Main section Start -->
+        <div class="row mt-5">
+            <div class="col-md-3">
+                <p>Hello, <strong>{{user.first_name}}  {{user.last_name}}</strong></p>
+                <a href="/createblog"><button class="btn btn-danger mb-3">Create Blog</button></a>
+                <!-- <br> -->
+                <div class="clearfix">
+                    <h5>Filter By Category</h5>
+                    <hr>
+                    <a href="" class="anchor btn btn-danger mb-2">Programing |</a>
+                    <a href="" class="anchor btn btn-danger mb-2">Data science |</a>
+                    <a href="" class="anchor btn btn-danger mb-2">Travel |</a>
+                    <a href="" class="anchor btn btn-danger mb-2">Video editing |</a>
+                </div>
+            </div>
+            <!-- create blog and category end -->
+            <div class="col-md-9">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Sr. No</th>
+                            <th>Blog Title</th>
+                            <th>Category</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>See Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in blogs %}
+                        <tr>
+                            <td>{{x.id}}</td>
+                            <td>{{x.title}}</td>
+                            <!-- <td>{{x.cat}}</td> -->
+                            <td>
+                                {% if x.cat == 1 %}
+                                Python
+                                {% elif x.cat == 2 %}
+                                Data Science
+                                {% elif x.cat == 3 %}
+                                Data Analyst
+                                {% elif x.cat == 4 %}
+                                JAVA
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="/edit/{{x.id}}">
+                                    <button class="btn btn-info btn-sm">Edit</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/delete/{{x.id}}">
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/see_det/{{x.id}}">
+                                    <button class="btn btn-success btn-sm">See Details</button>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Main section Start -->
+{% include 'footer.html' %}

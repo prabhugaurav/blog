@@ -1,0 +1,46 @@
+{% include 'header.html' %}
+
+        <!-- Main section Start -->
+        <div class="row mt-5">
+            <h4>Edit Blog</h4>
+            <div class="col-md-8">
+                {% for x in blog %}
+                <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">Blog Title</label>
+                            <input type="text" name="title" value="{{x.title}}" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Blog Description</label>
+                            <textarea class="form-control" name="detail" rows="3">{{x.detail}}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Select Category</label>
+                            <select class="form-control" name="cat">
+                                {% if x.cat == 1 %}
+                                <option value="1">Python</option>
+                                {% elif x.cat == 2 %}
+                                <option value="2">Data Science</option>
+                                {% elif x.cat == 3 %}
+                                <option value="3">Data Analyst</option>
+                                {% else %}
+                                <option value="4">Java</option>
+                                {% endif %}
+                                <option value=""></option>
+                                <option value="1">Python</option>
+                                <option value="2">Data Science</option>
+                                <option value="3">Data Analyst</option>
+                                <option value="4">Java</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-danger">Update</button>
+                        </div>
+                </form>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Main section Start -->
+
+{% include 'footer.html' %}

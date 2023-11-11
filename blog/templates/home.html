@@ -1,0 +1,68 @@
+{% include 'header.html' %}
+{% load static %}
+        <div class="row mt-3">
+
+            <div class="col-md-4">
+                <h4>Category</h4>
+                <hr>
+                <div class="mb-2">
+                    <a href="/catfilter/1" class="btn btn-danger">Python</a>
+                    <a href="/catfilter/2" class="btn btn-danger">Data Science</a>
+                    <a href="/catfilter/3" class="btn btn-danger">Data Analyst</a>
+                    <a href="/catfilter/4" class="btn btn-danger">JAVA</a>
+                    <!-- {% for x in blog %}
+                        {% if x.cat == 1 %}
+                        <a href="/catfilter/1" class="btn btn-danger">Python</a>
+                        {% elif x.cat == 2 %}
+                        <a href="/catfilter/2" class="btn btn-danger">Data Science</a>
+                        {% elif x.cat == 3 %}
+                        <a href="/catfilter/3" class="btn btn-danger">Data Analyst</a>
+                        {% else %}
+                        <a href="/catfilter/4" class="btn btn-danger">JAVA</a>
+                        {% endif %}
+                    {% endfor %} -->
+                </div>
+                <div class="mb-2">
+                    <!-- <button class="btn btn-danger">Data Analyst</button> -->
+                    <!-- <button class="btn btn-danger">JAVA</button> -->
+                </div>
+            </div><!-- Category End -->
+
+            <div class="col-md-8">
+                <h4>Latest Blog Post</h4>
+                <hr>
+
+                {% for x in blog %}
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <img src="{% static 'images/photo.jpg' %}" class="card-img-top" alt="...">
+                    </div>
+                    <!-- Blog Image -->
+                    <div class="col-md-9">
+                        <h5>{{x.title}}</h5>
+                        <strong>Author: </strong> Authorname &nbsp; &nbsp;
+                        <strong>Published on: </strong> 23rd Sept. 2023 &nbsp; &nbsp;
+                        3 mins Read <br>
+                        <p class="mb-1">{{x.detail}}</p>
+                        {% if x.cat == 1 %}
+                        <p><strong>Cat:</strong> Python</p>
+                        {% elif x.cat == 2 %}
+                        <p><strong>Cat:</strong> Data Science</p>
+                        {% elif x.cat == 3 %}
+                        <p><strong>Cat:</strong> Data Analyst</p>
+                        {% else %}
+                        <p><strong>Cat:</strong> JAVA</p>
+                        {% endif %}
+                        <a href=""><button class="btn btn-danger btn-sm">Read more</button></a>
+                    </div>
+                </div>
+                <!-- 1st Blog -->
+                {% endfor %}
+
+            </div><!-- Latest Blog Post -->
+
+        </div>
+
+{% include 'footer.html' %}
+
+

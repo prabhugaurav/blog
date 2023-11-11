@@ -1,0 +1,23 @@
+{% include 'header.html' %}
+
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto mt-3 shadow p-3">
+                <h3 class="text-danger">Login Form</h3>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <table>
+                        {{lgfm}}
+                        <tr>
+                            <td>
+                                <button type="submit" class="btn btn-success">Login</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                {% if errmsg %}
+                    <div class="alert alert-danger">{{errmsg}}</div>
+                {% endif %}
+            </div>
+        </div>
+
+{% include 'footer.html' %}
